@@ -1,0 +1,125 @@
+1 - login
+url : auth/login/
+method = POST
+parameters = [username , password]
+
+
+2 - logout
+url : auth/logout/
+method = POST
+parameters = nothing
+
+
+3 - Products List
+url : products/
+method = GET
+parameters = nothing
+
+
+4 - Add Product
+url : products/add/
+method = POST
+parameters = [title, price, count, image, popularity, sale_amount, colors]
+
+
+5 - Update Product
+url : products/update/<product_code>/
+method = POST
+parameters = [title, price, count, image, popularity, sale_amount, colors]
+
+
+6 - Delete Product
+url : products/Delete/<product_code>/
+method = DELETE
+parameters = nothing
+
+
+7 - Comments List
+url : comments/
+method = GET
+parameters = nothing
+
+
+8 - Update Comment
+url : comments/update/<comment_code>/
+method = POST
+parameters = [content]
+
+
+9 - Delete Comment
+url : comments/delete/<comment_code>/
+method = DELETE
+parameters = nothing
+
+
+10 - Users List
+url : users/
+method = GET
+parameters = nothing
+
+
+# UPDATE USER START
+
+11 - Update Users
+url : users/update/<user_code>
+url for password : users/update-password/<user_code>
+method = POST
+parameters = [username, first_name, last_name, password, phone, city, email, address, score, buy, user_code]
+
+# UPDATE USER END
+
+
+12 - Delete Users
+url : users/delete/<user_code>
+method = DELETE
+parameters = nothing
+
+
+13 - Admin Users
+url : users/admins/
+method = GET
+parameters = nothing
+
+
+14 - Orders List
+url : orders/
+method = GET
+parameters = nothing
+
+
+# ORDER DETAIL PAGE START
+
+15 - Order Infos
+url : orders/detail/<order_code>/
+method = GET
+parameters = [order_code]
+
+16 - Order Product Items
+url : orders/detail/items/<order_code>/
+method = GET
+parameters = [order_code]
+
+# ORDER DETAIL PAGE END
+
+
+17 - Discounts
+url : discounts/
+method = GET
+parameters = nothing
+
+
+18 - Discount Update
+url : discounts/update/<discount_code>/
+method = POST
+parameters = [is_active]
+
+
+19 - Discount Delete
+url : discounts/delete/<discount_code>/
+method = DELETE
+parameters = nothing
+
+
+
+
+PROJECT_AUTHENTICATION_CLASS = "Token Authentication"
