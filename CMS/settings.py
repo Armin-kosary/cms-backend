@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'PIL',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'corsheaders',
     # APPS
     'Product',
     'Comment',
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'CMS.urls'
@@ -152,3 +154,15 @@ REST_FRAMEWORK = {
 
 
 AUTH_USER_MODEL = 'User.User'
+
+
+
+
+ALLOWED_HOSTS=['http://localhost:8000', 'http://127.0.0.1:8000']
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+       'http://localhost:8000',
+       'http://127.0.0.1:8000',
+)
