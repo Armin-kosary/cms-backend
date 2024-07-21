@@ -9,10 +9,10 @@ class Comment(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.comment_code:
-            last_comment_code = Comment.objects.last().comment_code
+            last_comment_code = Comment.objects.last()
 
             if last_comment_code:
-                self.comment_code = last_comment_code + 1
+                self.comment_code = last_comment_code.comment_code + 1
 
             elif not last_comment_code:
                 self.comment_code = 10000

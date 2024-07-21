@@ -14,9 +14,9 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.user_code:
-            last_user_code = User.objects.last().user_code
+            last_user_code = User.objects.last()
             if last_user_code:
-                self.user_code = last_user_code + 1
+                self.user_code = last_user_code.user_code + 1
             elif not last_user_code:
                 self.user_code = 10000
         super(User, self).save(*args, **kwargs)

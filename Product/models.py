@@ -14,10 +14,10 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.product_code:
-            last_product_code = Product.objects.last().product_code
+            last_product_code = Product.objects.last()
 
             if last_product_code:
-                self.product_code = last_product_code + 1
+                self.product_code = last_product_code.product_code + 1
 
             elif not last_product_code:
                 self.product_code = 10000
