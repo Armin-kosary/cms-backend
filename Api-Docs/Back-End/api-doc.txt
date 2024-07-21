@@ -24,7 +24,7 @@ parameters = [title, price, count, image, popularity, sale_amount, colors]
 
 5 - Update Product
 url : products/update/<product_code>/
-method = POST
+method = PUT
 parameters = [title, price, count, image, popularity, sale_amount, colors]
 
 
@@ -42,7 +42,7 @@ parameters = nothing
 
 8 - Update Comment
 url : comments/update/<comment_code>/
-method = POST
+method = PUT
 parameters = [content]
 
 
@@ -63,7 +63,7 @@ parameters = nothing
 11 - Update Users
 url : users/update/<user_code>
 url for password : users/update-password/<user_code>
-method = POST
+method = PUT
 parameters = [username, first_name, last_name, password, phone, city, email, address, score, buy, user_code]
 
 # UPDATE USER END
@@ -110,7 +110,7 @@ parameters = nothing
 
 18 - Discount Update
 url : discounts/update/<discount_code>/
-method = POST
+method = PUT
 parameters = [is_active]
 
 
