@@ -6,7 +6,7 @@ class Product(models.Model):
     title = models.CharField(max_length=500)
     price = models.IntegerField()
     count = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='Product-Images/')
+    image = models.ImageField(upload_to='Product-Images/', null=True)
     popularity = models.CharField(max_length=50)
     sale_amount = models.CharField(max_length=50)
     colors = models.CharField(max_length=100, null=True)
