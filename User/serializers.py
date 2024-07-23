@@ -1,6 +1,11 @@
 from rest_framework import serializers
 from .models import User
 
+class GetUserDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["username", "first_name", "last_name"]
+
 class UsersListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

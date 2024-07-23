@@ -2,12 +2,24 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import User
 from .serializers import UsersListSerializer, UpdateUserSerializer, UpdateUsersPasswordSerializer, AdminListSerializer
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-
+from rest_framework.authtoken.models import Token
+from User.models import User
+from .serializers import GetUserDetailSerializer
 # Create your views here.
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def get_user_detail_api_view(request: Request):
+    if request.method == "POST":
+        get_username = request.user
+        get_user = User.objects.filter(username = get_username)
+        serializer = GetUserDetailSerializer(get_user)
+        return Response(serializer.data, status.HTTP_200_OK)
 
 class UsersListGenericApiView(generics.ListAPIView):
     queryset = User.objects.all()
@@ -29,8 +41,9 @@ class UpdateUserGenericApiView(generics.UpdateAPIView):
 
 class DeleteUserGenericApiView(generics.DestroyAPIView):
     queryset = User.objects.all()
-    lookup_field = "username"
-    lookup_url_kwarg = "username"
+    lookup_field = "user_code"
+    lookup_url_kwarg = "user_code"
+
 
 
 class AdminsListGenericApiView(generics.ListAPIView):
