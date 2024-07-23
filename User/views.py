@@ -15,11 +15,15 @@ from .serializers import GetUserDetailSerializer
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def get_user_detail_api_view(request: Request):
-    if request.method == "POST":
-        get_username = request.user
-        get_user = User.objects.filter(username = get_username)
-        serializer = GetUserDetailSerializer(get_user)
-        return Response(serializer.data, status.HTTP_200_OK)
+    try:
+        if request.method == "POST":
+            get_username = request.user
+            print(request.user)
+            get_user = User.objects.filter(username = get_username).first()
+            serializer = GetUserDetailSerializer(get_user)
+            return Response(serializer.data, status.HTTP_200_OK)
+    except:
+        return Response({"Detail" : "You Are Not Authenticated"}, status.HTTP_401_UNAUTHORIZED)
 
 class UsersListGenericApiView(generics.ListAPIView):
     queryset = User.objects.all()
