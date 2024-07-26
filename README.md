@@ -2,7 +2,7 @@
 <br>
 
 
-<b>ABOUT THIS PROJECT :</b><br>This is an simple web-shop admin system made by React.js in Front-End and Django in Back-End.<br>
+<b>ABOUT THIS PROJECT :</b><br>This is an simple web-shop admin system made by React.js in Front-End and Django in Back-End.
 <br><br>
 
 Front-End Repository : <a href="https://github.com/Bahinkor/rtl-cms">Bahinkor/rtl-cms</a>
