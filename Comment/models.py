@@ -14,6 +14,10 @@ class Comment(models.Model):
     admin_reply = models.TextField(null=True, blank=True)
     comment_code = models.IntegerField(null=True, blank=True)
 
+    def __str__(self):
+        return str(self.comment_code)
+
+
     def save(self, *args, **kwargs):
         if not self.comment_code:
             last_comment_code = Comment.objects.last()

@@ -6,7 +6,12 @@ from Product.models import Product
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
+    is_verified = models.BooleanField(default=False)
     order_code = models.IntegerField(blank=True, null=True)
+
+
+    def __str__(self):
+        return str(self.order_code)
 
     def save(self, *args, **kwargs):
         if not self.order_code:

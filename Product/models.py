@@ -12,6 +12,11 @@ class Product(models.Model):
     colors = models.CharField(max_length=100, null=True)
     product_code = models.IntegerField(blank=True, null=True)
 
+
+    def __str__(self):
+        return self.title
+
+
     def save(self, *args, **kwargs):
         if not self.product_code:
             last_product_code = Product.objects.last()

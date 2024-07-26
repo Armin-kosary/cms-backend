@@ -24,3 +24,10 @@ class OrderItemsGenericApiView(generics.ListAPIView):
     serializer_class = OrderItemSerializer
     lookup_field = "order__order_code"
     lookup_url_kwarg = "order_code"
+
+
+# DELETE ORDER VIEW
+class DeleteOrderGenericApiView(generics.DestroyAPIView):
+    queryset = Order.objects.all()
+    lookup_field = "order_code"
+    lookup_url_kwarg = "order_code"
