@@ -3,7 +3,8 @@ from .models import Order, OrderItem
 from User.models import User
 from Product.models import Product
 
-# ORDER LIST
+# ORDERS LIST SERIALIZERS
+
 class OrderListsUsernameSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -15,9 +16,10 @@ class OrdersListSerializer(serializers.ModelSerializer):
         model = Order
         exclude = ["id"]
 
+# ORDERS LIST SERIALIZERS
 
 
-# ORDER DETAIL PAGE
+# ORDERS DETAIL SERIALIZERS
 
 # 1 - ORDER DETAIL
 
@@ -44,3 +46,5 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = ["product", "item_code"]
+
+# ORDERS DETAIL SERIALIZERS

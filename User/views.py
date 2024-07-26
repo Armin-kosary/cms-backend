@@ -12,6 +12,8 @@ from User.models import User
 from .serializers import GetUserDetailSerializer
 # Create your views here.
 
+
+# USERS DETAIL VIEWS
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def get_user_detail_api_view(request: Request):
@@ -25,10 +27,14 @@ def get_user_detail_api_view(request: Request):
     except:
         return Response({"Detail" : "You Are Not Authenticated"}, status.HTTP_401_UNAUTHORIZED)
 
+
+# USERS LIST VIEWS
 class UsersListGenericApiView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UsersListSerializer
 
+
+# UPDATE USERS VIEWS
 @api_view(["PUT"])
 def update_user_password(request: Request, user_code):
     if request.method == "PUT":
@@ -43,13 +49,15 @@ class UpdateUserGenericApiView(generics.UpdateAPIView):
     lookup_field = "user_code"
     lookup_url_kwarg = "user_code"
 
+
+# DELETE USERS
 class DeleteUserGenericApiView(generics.DestroyAPIView):
     queryset = User.objects.all()
     lookup_field = "user_code"
     lookup_url_kwarg = "user_code"
 
 
-
+# ADMINS LIST VIEWS
 class AdminsListGenericApiView(generics.ListAPIView):
     queryset = User.objects.filter(is_superuser = True)
     serializer_class = AdminListSerializer

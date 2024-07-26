@@ -3,6 +3,7 @@ from .models import Comment
 from User.models import User
 from Product.models import Product
 
+# COMMENTS LIST SERIALIZERS
 
 class CommentsOwnerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,7 +22,16 @@ class CommentsListSerializer(serializers.ModelSerializer):
         model = Comment
         exclude = ["id"]
 
+# COMMENTS LIST SERIALIZERS
+
+
+
+
+# UPDATE COMMENTS SERIALIZERS
+
 class UpdateCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         exclude = ["id", "user", "comment_code", "content", "product"]
+
+# UPDATE COMMENTS SERIALIZERS
