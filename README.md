@@ -10,5 +10,5 @@ Front-End Repository : <a href="https://github.com/Bahinkor/rtl-cms">Bahinkor/rt
 <br><br>
 
 <h3 align="left">Collaborators 👨‍💻:</h3>
-1-<a href="https://github.com/Armin-Kosary">Armin Kosari</a> (BackEnd Developer)<br>
-2-<a href="https://github.com/Bahinkor">Mohammad Reza Bahin Kor</a> (FrontEnd Developer)
+1-<a href="https://github.com/Armin-Kosary">Armin Kosari</a> (Back-End Developer)<br>
+2-<a href="https://github.com/Bahinkor">Mohammad Reza Bahin Kor</a> (Front-End Developer)
