@@ -14,7 +14,7 @@ from .serializers import GetUserDetailSerializer
 
 
 # USERS DETAIL VIEWS
-@api_view(["POST"])
+@api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_user_detail_api_view(request: Request):
     try:
@@ -50,7 +50,7 @@ class UpdateUserGenericApiView(generics.UpdateAPIView):
     lookup_url_kwarg = "user_code"
 
 
-# DELETE USERS
+# DELETE USERS VIEWS
 class DeleteUserGenericApiView(generics.DestroyAPIView):
     queryset = User.objects.all()
     lookup_field = "user_code"

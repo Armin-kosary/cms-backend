@@ -43,7 +43,7 @@ parameters = nothing
 8 - Update Comment
 url : comments/update/<comment_code>/
 method = PUT
-parameters = [content]
+parameters = [content, is_verified, admin_repley]
 
 
 9 - Delete Comment

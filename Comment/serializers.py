@@ -25,8 +25,6 @@ class CommentsListSerializer(serializers.ModelSerializer):
 # COMMENTS LIST SERIALIZERS
 
 
-
-
 # UPDATE COMMENTS SERIALIZERS
 
 class UpdateCommentSerializer(serializers.ModelSerializer):

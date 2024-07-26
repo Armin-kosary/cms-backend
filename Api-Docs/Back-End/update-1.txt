@@ -1,0 +1,21 @@
+HERE IS NEW URLS LIST FOR NEW UPDATE
+
+1 - User detail
+url : users/detail/
+method = GET
+parameters = nothing
+
+2 - Delete order
+url : orders/delete/<order_code>/
+method = DELETE
+parameters = nothing
+
+3 - Update order
+url : orders/update/<order_code>/
+method = PUT
+parameters = [is_verified]
+
+4 - Add Discount
+url : discounts/add/
+method = POST
+parameters = [title, percent, key, is_active]

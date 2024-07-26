@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import Order, OrderItem
-from .serializers import OrdersListSerializer, OrderDetailSerializer, OrderItemSerializer
+from .serializers import OrdersListSerializer, OrderDetailSerializer, OrderItemSerializer, UpdateOrdersSerializer
 # Create your views here.
 
 
@@ -11,8 +11,7 @@ class OrdersListGenericApiView(generics.ListAPIView):
     serializer_class = OrdersListSerializer
 
 
-
-# ORDER DETAIL VIEWS
+# ORDERS DETAIL VIEWS
 class OrderDetailGenericApiView(generics.RetrieveAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderDetailSerializer
@@ -26,7 +25,15 @@ class OrderItemsGenericApiView(generics.ListAPIView):
     lookup_url_kwarg = "order_code"
 
 
-# DELETE ORDER VIEW
+# UPDATE ORDERS VIEW
+class UpdateOrderGenericApiView(generics.UpdateAPIView):
+    serializer_class = UpdateOrdersSerializer
+    lookup_field = "order_code"
+    lookup_url_kwarg = "order_code"
+    queryset = Order.objects.all()
+        
+
+# DELETE ORDERS VIEW
 class DeleteOrderGenericApiView(generics.DestroyAPIView):
     queryset = Order.objects.all()
     lookup_field = "order_code"

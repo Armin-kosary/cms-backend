@@ -48,3 +48,13 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = ["product", "item_code"]
 
 # ORDERS DETAIL SERIALIZERS
+
+
+# UPDATE ORDERS SERIALIZERS
+
+class UpdateOrdersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ["is_verified"]
+
+# UPDATE ORDERS SERIALIZERS
