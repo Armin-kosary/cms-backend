@@ -18,12 +18,11 @@ from .serializers import GetUserDetailSerializer
 @permission_classes([IsAuthenticated])
 def get_user_detail_api_view(request: Request):
     try:
-        if request.method == "POST":
-            get_username = request.user
-            print(request.user)
-            get_user = User.objects.filter(username = get_username).first()
-            serializer = GetUserDetailSerializer(get_user)
-            return Response(serializer.data, status.HTTP_200_OK)
+        get_username = request.user
+        print(request.user)
+        get_user = User.objects.filter(username = get_username).first()
+        serializer = GetUserDetailSerializer(get_user)
+        return Response(serializer.data, status.HTTP_200_OK)
     except:
         return Response({"Detail" : "You Are Not Authenticated"}, status.HTTP_401_UNAUTHORIZED)
 
